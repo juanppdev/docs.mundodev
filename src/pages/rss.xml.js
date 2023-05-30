@@ -1,5 +1,8 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import sanitizeHtml from 'sanitize-html';
+import MarkdownIt from 'markdown-it';
+const parser = new MarkdownIt();
 
 export async function get(context) {
   
@@ -28,14 +31,9 @@ export async function get(context) {
     description: "Una web de documentaiones de/para la comunidad",
     site: context.site,
     items: allDocs.map((doc) => ({
-      title: doc.data.title,
-      description: doc.data.description,
-      author: doc.data.author,
-      image: {
-        url: doc.data.image.url,
-        alt: doc.data.image.alt,
-      }
       link: `/docs/${doc.data.tag}/${doc.slug}`,
+      content: sanitizeHtml(parser.render(doc.body)),
+      ...doc.data
     })),
   });
 }
