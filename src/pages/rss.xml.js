@@ -32,7 +32,7 @@ export async function get(context) {
       description: doc.data.description,
       author: doc.data.author,
       image: doc.data.image.url,
-      link: `/docs/${post.data.tag}/${post.slug}`
+      link: `/docs/${doc.data.tag}/${doc.slug}`
     })),
   });
 }
