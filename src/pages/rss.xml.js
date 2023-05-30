@@ -6,7 +6,7 @@ export async function get(context) {
   return rss({
     title: 'Documentacion Mundodev',
     description: 'Obten doumentaciones de toda la comunidad de Mundodev o otras',
-    site: context.site,
+    site: 'https://docs-mundodev.vercel.app',
     items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
   });
 }
