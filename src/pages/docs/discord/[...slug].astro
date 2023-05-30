@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../../layouts/MarkdownPostLayout.astro';
 
 export async function getStaticPaths() {
-  const discordEntries = await getCollection('discord');
+  const discordEntries = await getCollection('discord').catch(() => []);
   return discordEntries.map(entry => ({
     params: { slug: entry.slug}, props: { entry },
   }));

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../../layouts/MarkdownPostLayout.astro';
 
 export async function getStaticPaths() {
-  const mysqlEntries = await getCollection('mysql');
+  const mysqlEntries = await getCollection('mysql').catch(() => []);
   return mysqlEntries.map(entry => ({
     params: { slug: entry.slug}, props: { entry },
   }));

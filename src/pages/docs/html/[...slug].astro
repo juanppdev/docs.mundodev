@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../../layouts/MarkdownPostLayout.astro';
 
 export async function getStaticPaths() {
-  const htmlEntries = await getCollection('html');
+  const htmlEntries = await getCollection('html').catch(() => []);
   return htmlEntries.map(entry => ({
     params: { slug: entry.slug}, props: { entry },
   }));
