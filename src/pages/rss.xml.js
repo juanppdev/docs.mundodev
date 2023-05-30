@@ -29,7 +29,7 @@ export async function get(context) {
     site: context.site,
     items: allDocs.map((doc) => ({
       title: doc.data.title,
-      description: doc.data.description
+      description: doc.data.description,
       author: doc.data.author,
       image: doc.data.image.url,
       link: `/docs/${post.data.tag}/${post.slug}`
