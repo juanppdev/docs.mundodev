@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
-export function get(context) {
+export async function get(context) {
   
   const mysql = await getCollection('mysql').catch(() => []);
   const discord = await getCollection('discord').catch(() => []);
