@@ -14,7 +14,7 @@ export async function get(context) {
     items: docs.map((doc) => ({
       link: `/docs/${doc.data.tag}/${doc.slug}`,
       content: sanitizeHtml(doc.compiledContent()),
-      ...doc.data
+      ...doc.frontmatter,
     })),
   });
 }
