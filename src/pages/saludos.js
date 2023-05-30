@@ -1,0 +1,4 @@
+export const saludos = [
+  "Hallo", "Përshëndetje", "እው ሰላም ነው", "مرحبًا", "Barev", "Salam", "Kaixo", "হ্যালো",
+  "Zdravo", "Здравейте", "ဟယ်လို", "你好", "Hola","Kamusta", "Zdravo", "Ahoj", "Hej", "Hello", "Tere", "سلام", "Bula", "Hei", "Bonjour", "Dia dhuit", "გამარჯობა", "γεια", "Bonjou", "Aloha", "שלום", "नमस्ते",  "Nyob zoo", "Szia", "Halló", "Ndewo", "Halo", "Ciao", "こんにちは", "សួស្តី",   "안녕하세요", "Slav", "ສະບາຍດີ",  "Sveiki", "Moien", "Salama", "Selamat pagi", "Bongu", "你好", "नमस्कार",  "сайн уу", "Niltze Tialli Pialli", "Ya’at’eeh", "नमस्कार", "Hei", "سلام", "Cześć", "Olá", "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",   "Allianchu", "Bunâ", "Privet", "Talofa", "Dumela", "Ahoj", "Zdravo", "Jambo", "Hallå", "Kamusta", "Ia Orana", "Li-hó", "வணக்கம்", "สวัสดี", "Tashi delek", "Mālō e lelei", "Merhaba", "привіт", "السلام عليكم", "Salom", "Xin chào", "Molo"
+]

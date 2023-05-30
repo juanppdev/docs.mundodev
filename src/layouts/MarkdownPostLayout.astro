@@ -1,0 +1,47 @@
+---
+import Layout from './Layout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+  <div class="contenido">
+    <img src={frontmatter.image.url} width="100%" height="200px" alt={frontmatter.image.alt}/>
+    <h1 class="text-center py-3">{frontmatter.title}</h1>
+    <figure class="text-end px-3">
+      <blockquote class="blockquote">
+        <p><em>{frontmatter.description}</em></p>
+      </blockquote>
+      <figure class+"blockquote-footer">
+        <p><u>Escrito por: {frontmatter.author}</u></p>
+      </figure>
+    </figure>
+  </div>
+  
+  <div class="p-2">
+    <slot/>
+  <div>
+  
+  <div class="tags">
+      <p class="tag"><a href={`/tags/${frontmatter.tag}`}>{frontmatter.tag}</a></p>
+    </div>
+  
+</Layout>
+
+<style>
+  a {
+    color: #00539F;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F9FCFD;
+  }
+</style>

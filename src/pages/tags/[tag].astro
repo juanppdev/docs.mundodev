@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+
+  const mysqlDoc = await getCollection("mysql").catch(() => []);
+  const discordDoc = await getCollection("discord").catch(() => []);
+  const mongodbDoc = await getCollection("mongodb").catch(() => []);
+  const jsDoc = await getCollection("javascript").catch(() => []);
+  const htmlDoc = await getCollection("html").catch(() => []);
+  const cssDoc = await getCollection("css").catch(() => []);
+  const pythonDoc = await getCollection("python").catch(() => []);
+  const javaDoc = await getCollection("java").catch(() => []);
+  
+  const allDocs = [
+    ...mysqlDoc,
+    ...discordDoc,
+    ...mongodbDoc,
+    ...jsDoc,
+    ...htmlDoc,
+    ...cssDoc,
+    ...pythonDoc,
+    ...javaDoc,
+    ];
+    
+  const uniqeTags = [...new Set(allDocs.map((post) => post.data.tag).flat())];
+
+  return uniqeTags.map((tag) => {
+    const filteredPosts = allDocs.filter((post) => post.data.tag.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout pageTitle={tag}>
+  <p class="px-3">Entradas etiquetadas con {tag}</p
+  <ul>
+    {
+      posts.map((post) => (
+        <ol class="list-group list-group-numbered px-2">
+          <li class="list-group-item"><a href={`/docs/${tag}/` + post.slug}>{post.data.title}</a></li>
+        </ol>
+      ))
+    }
+  </ul>
+</Layout>

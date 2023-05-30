@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+  const mysqlDoc = await getCollection("mysql").catch(() => []);
+  const discordDoc = await getCollection("discord").catch(() => []);
+  const mongodbDoc = await getCollection("mongodb").catch(() => []);
+  const jsDoc = await getCollection("javascript").catch(() => []);
+  const htmlDoc = await getCollection("html").catch(() => []);
+  const cssDoc = await getCollection("css").catch(() => []);
+  const pythonDoc = await getCollection("python").catch(() => []);
+  const javaDoc = await getCollection("java").catch(() => []);
+  
+  const allDocs = [
+    ...mysqlDoc,
+    ...discordDoc,
+    ...mongodbDoc,
+    ...jsDoc,
+    ...htmlDoc,
+    ...cssDoc,
+    ...pythonDoc,
+    ...javaDoc,
+    ];
+
+const tags = [...new Set(allDocs.map((post) => post.data.tag).flat())];
+const pageTitle = "Tags List";
+
+function getCount(tag) {
+  return allDocs.filter((post) => post.data.tag === tag).length;
+}
+
+
+
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="tags">
+    {tags.length > 0 && tags
+    .map((tag) => (
+      <ol class="list-group list-group-numbered px-2">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <a href={`tags/${tag}/`}>{tag}</a>
+              <span class="badge bg-primary rounded-pill">{getCount(tag)}</span>
+            </div>
+          </li>
+        </ol>
+      ))}
+  </div>
+</Layout>
+
+<style>
+  a {
+    color: #00539F;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F9FCFD;
+  }
+</style>
