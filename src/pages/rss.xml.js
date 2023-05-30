@@ -23,7 +23,7 @@ const allDocs = [
     ...java,
     ];
   
-  return ({
+  return rss({
     title: 'Documentacion Mundodev',
     description: 'Obten doumentaciones de toda la comunidad de Mundodev o otras',
     site: context.site,
