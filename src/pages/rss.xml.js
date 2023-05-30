@@ -12,8 +12,6 @@ export async function get(context) {
   const python = await getCollection('python').catch(() => []);
   const java = await getCollection('java').catch(() => []);
   
-  import {saludos} from './saludos.js';
-  
   const allDocs = [
       ...mysql,
       ...discord,
