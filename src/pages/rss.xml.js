@@ -35,7 +35,7 @@ const allDocs = [
         url: doc.data.image.url,
         alt: doc.data.image.alt,
       },
-      link: `/docs/${post.data.tag}/${post.slug}`
+      link: `/docs/${doc.data.tag}/${doc.slug}`
     })),
   });
 }
