@@ -31,9 +31,10 @@ const allDocs = [
       title: doc.data.title,
       description: doc.data.description,
       author: doc.data.author,
-      image: 
+      image: {
         url: doc.data.image.url,
         alt: doc.data.image.alt,
+      },
       link: `/docs/${post.data.tag}/${post.slug}`
     })),
   });
