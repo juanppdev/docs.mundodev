@@ -1,3 +1,11 @@
+
+# Docs MundoDev
+
+Este es un repositorio donde podrás subir contenido como documentaciones para la comunidad, obviamente este repo fue para aprender sobre astro.
+## Demo
+
+https://docs-mundodev.vercel.app/
+
 ## Documentacion de/para la comunidad
 
 Bienveenidos a este proyecto, donde podras publicar una documentacion con el tema deseado.
